@@ -14,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import zerobase.weather.WeatherApplication;
 import zerobase.weather.domain.DateWeather;
 import zerobase.weather.domain.Diary;
-import zerobase.weather.error.InvalidDate;
 import zerobase.weather.repository.DateWeatherRepository;
 import zerobase.weather.repository.DiaryRepository;
 
@@ -91,7 +90,6 @@ public class DiaryService {
         return diaryRepository.findAllByDateBetween(startDate, endDate);
     }
 
-
     public void updateDiary(LocalDate date, String text) {
         Diary nowDiary = diaryRepository.getFirstByDate(date);
         nowDiary.setText(text);
@@ -101,6 +99,7 @@ public class DiaryService {
     public void deleteDiary(LocalDate date) {
         diaryRepository.deleteAllByDate(date);
     }
+
     private String getWeatherString(){
         String apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=seoul&appid=" + apiKey;
         try {
@@ -144,5 +143,4 @@ public class DiaryService {
         resultMap.put("icon", weatherData.get("icon"));
         return resultMap;
     }
-
 }

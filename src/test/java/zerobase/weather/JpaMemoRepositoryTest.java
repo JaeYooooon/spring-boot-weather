@@ -15,7 +15,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @Transactional
 class JpaMemoRepositoryTest {
-//737e4801518d759e84a43dea0b877db6
     @Autowired
     JpaMemoRepository jpaMemoRepository;
 

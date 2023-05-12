@@ -3,10 +3,8 @@ package zerobase.weather.controller;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import zerobase.weather.domain.Diary;
-import zerobase.weather.error.InvalidDate;
 import zerobase.weather.service.DiaryService;
 
 import java.time.LocalDate;
@@ -40,6 +38,7 @@ public class DiaryController {
                             @RequestParam @DateTimeFormat(iso= DateTimeFormat.ISO.DATE) @ApiParam(value = "날짜 형식 : 조회할 기간의 마지막 날", example = "2020-02-02") LocalDate endDate){
         return diaryService.readDiaries(startDate, endDate);
     }
+
     @PutMapping("/update/diary")
     void updateDiary(@RequestParam @DateTimeFormat(iso= DateTimeFormat.ISO.DATE) LocalDate date,
                      @RequestBody String text) {
@@ -50,6 +49,4 @@ public class DiaryController {
     void deleteDiary(@RequestParam @DateTimeFormat(iso= DateTimeFormat.ISO.DATE) LocalDate date){
         diaryService.deleteDiary(date);
     }
-
-
 }
