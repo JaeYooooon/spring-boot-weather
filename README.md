@@ -1,4 +1,4 @@
-## 📍 Account Project
+## 📍 Weather Project
 하루의 날씨와 일기를 기록하는 날씨 일기 프로젝트
 
 ## ⚙ Tech Stack
